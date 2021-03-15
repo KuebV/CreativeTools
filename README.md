@@ -63,3 +63,11 @@ Example:
 
 If you do `/gravity get` when you spawn. You'll see the default gravity is -19.62. I have no clue why. But it works
 
+
+##Permissions
+CreativeTools uses its own permissions.
+- ct.gravity (is allowed to change gravity)
+- ct.jail (allowed to jail. Also need admin.teleport to work)
+- ct.speed (allowed to use the speed command)
+(Noclip doesn't have its own permission. It uses the default admin.noclip permission
+
