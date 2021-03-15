@@ -64,7 +64,7 @@ Example:
 If you do `/gravity get` when you spawn. You'll see the default gravity is -19.62. I have no clue why. But it works
 
 
-##Permissions
+## Permissions
 
 CreativeTools uses its own permissions.
 - ct.gravity (is allowed to change gravity)
