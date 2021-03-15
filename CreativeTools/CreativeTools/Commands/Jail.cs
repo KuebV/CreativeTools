@@ -35,6 +35,13 @@ namespace CreativeTools.Commands
                 }
                 if (args.Length < 2)
                 {
+                    foreach(Player ply in Player.List){
+                        if (Plugin.Instance.JailedUsers.ContainsKey(ply))
+                        {
+                            EventHandlers.UnjailUser(ply, Player.Get(invoker));
+                            response = CommandResponse.Create(true, "User has been unjailed!");
+                        }
+                    }
                     response = CommandResponse.Create(true, "You must supply a reason!");
                     return;
                 }

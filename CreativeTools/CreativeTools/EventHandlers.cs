@@ -20,6 +20,8 @@ namespace CreativeTools
         public static void JailUser(Player target, Player invoker, string Reason)
         {
             target.WalkSpeed = 0;
+            target.CrouchSpeed = 0;
+            target.SprintSpeed = 0;
             target.GodModeEnabled = true;
             target.NotargetEnabled = true;
             target.Broadcast(MessageFormatter(target, invoker, Reason, Plugin.Instance.Config.TargetJailMessage), Plugin.Instance.Config.TargetJailMessageDuration);
@@ -35,7 +37,9 @@ namespace CreativeTools
 
         public static void UnjailUser(Player target, Player invoker)
         {
-            target.WalkSpeed = 2;
+            target.WalkSpeed = 4;
+            target.CrouchSpeed = 2;
+            target.SprintSpeed = 8;
             target.GodModeEnabled = false;
             target.NotargetEnabled = false;
             target.Broadcast("<color=green> You have been unfrozen. Continue playing as usual! </color>", 5);
