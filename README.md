@@ -65,6 +65,7 @@ If you do `/gravity get` when you spawn. You'll see the default gravity is -19.6
 
 
 ##Permissions
+
 CreativeTools uses its own permissions.
 - ct.gravity (is allowed to change gravity)
 - ct.jail (allowed to jail. Also need admin.teleport to work)
