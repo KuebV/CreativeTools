@@ -11,6 +11,8 @@ Group of commands for Moderators and Admins alike.
 
 
 ## Command Info & Usage :
+## IMPORTANT : COMMANDS ARE RUN IN THE CHAT BOX. NOT ADMIN PANEL
+
 ### Jail Command
 
 Jail is not how it usually works as in a game such as SCP:SL
