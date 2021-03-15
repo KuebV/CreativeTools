@@ -54,10 +54,5 @@ namespace CreativeTools
             string.IsNullOrEmpty(Config) ? string.Empty : Config.Replace("%target%", target.Nickname).Replace("%staff%", staff.Nickname).Replace("%reason%", Reason);
 
 
-        public static void TpX(Player first, Player second)
-        {
-
-        }
-
     }
 }
