@@ -122,8 +122,10 @@ CreativeTools uses its own permissions.
 
 ## Q/A
 - Why does Jail teleport me to nowhere?
+- 
 **It's how SCPET does Seeding, unfortuantly I cannot fix this. If this happens, use freeze**
 
 - Why are errors appearing in the console when running commands such as speed or nickname
+- 
 **UnityObjects getting destroyed, this will be fixed in the near future**
 
