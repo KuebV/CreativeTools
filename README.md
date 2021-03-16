@@ -1,4 +1,5 @@
 # CreativeTools
+## Requires Cencus 1.1.0 (Can be found in releases tab)
 Group of commands for Moderators and Admins alike.
 
 ## Utlity Commands
