@@ -31,8 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="00CensusCore">
-      <HintPath>..\..\..\..\Census\Plugins\00CensusCore.dll</HintPath>
+    <Reference Include="00CensusCore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Census\UpdatedCensus\00CensusCore.dll</HintPath>
     </Reference>
     <Reference Include="0Harmony">
       <HintPath>..\..\..\..\Census\Plugins\dependencies\0Harmony.dll</HintPath>
@@ -43,8 +44,9 @@
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>..\..\..\..\Sandbox\ETServer\scp_et_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
-    <Reference Include="CensusAPI">
-      <HintPath>..\..\..\..\Census\Plugins\dependencies\CensusAPI.dll</HintPath>
+    <Reference Include="CensusAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Census\UpdatedCensus\CensusAPI.dll</HintPath>
     </Reference>
     <Reference Include="Mirror, Version=63.5.0.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="System" />
@@ -60,12 +62,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminCommands\Freeze.cs" />
+    <Compile Include="AdminCommands\Jail.cs" />
     <Compile Include="Commands\Gravity.cs" />
-    <Compile Include="Commands\Jail.cs" />
+    <Compile Include="Commands\JumpHeight.cs" />
+    <Compile Include="Commands\Nickname.cs" />
     <Compile Include="Commands\Noclip.cs" />
+    <Compile Include="Commands\Position.cs" />
     <Compile Include="Commands\Speed.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="EventHandlers.cs" />
+    <Compile Include="Events\CTEvents.cs" />
+    <Compile Include="Jailed.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

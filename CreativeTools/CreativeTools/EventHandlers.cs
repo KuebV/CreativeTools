@@ -10,6 +10,7 @@ using VirtualBrightPlayz.SCP_ET;
 using VirtualBrightPlayz.SCP_ET.Player;
 using PluginFramework.Classes;
 using VirtualBrightPlayz.SCP_ET.Items.ItemSystem;
+using VirtualBrightPlayz.SCP_ET.NetworkAuth;
 using UnityEngine;
 using Mirror;
 
@@ -17,42 +18,23 @@ namespace CreativeTools
 {
     public class EventHandlers
     {
-        public static void JailUser(Player target, Player invoker, string Reason)
-        {
-            target.WalkSpeed = 0;
-            target.CrouchSpeed = 0;
-            target.SprintSpeed = 0;
-            target.GodModeEnabled = true;
-            target.NotargetEnabled = true;
-            target.Broadcast(MessageFormatter(target, invoker, Reason, Plugin.Instance.Config.TargetJailMessage), Plugin.Instance.Config.TargetJailMessageDuration);
 
-            invoker.GodModeEnabled = true;
-            invoker.NotargetEnabled = true;
-            invoker.Broadcast(MessageFormatter(target, invoker, Reason, Plugin.Instance.Config.StaffJailMessage), Plugin.Instance.Config.StaffJailMessageDuration);
-            invoker.Position = target.Position;
-
-            Plugin.Instance.JailedUsers.Add(target, invoker);
-
-        }
-
-        public static void UnjailUser(Player target, Player invoker)
-        {
-            target.WalkSpeed = 4;
-            target.CrouchSpeed = 2;
-            target.SprintSpeed = 8;
-            target.GodModeEnabled = false;
-            target.NotargetEnabled = false;
-            target.Broadcast("<color=green> You have been unfrozen. Continue playing as usual! </color>", 5);
-
-            invoker.Inventory.ClearInv();
-            invoker.Kill();
-
-            Plugin.Instance.JailedUsers.Remove(target);
-        }
-
-        private static string MessageFormatter(Player target, Player staff, string Reason, string Config) =>
+        public static string MessageFormatter(Player target, Player staff, string Reason, string Config) =>
             string.IsNullOrEmpty(Config) ? string.Empty : Config.Replace("%target%", target.Nickname).Replace("%staff%", staff.Nickname).Replace("%reason%", Reason);
 
+        public static Vector3 getPosition(PlayerController controller)
+        {
+            return controller.transform.position;
+        }
 
+        public static void changeNickname(Player player, string Value)
+        {
+            player.Nickname = Value;
+        }
+
+        public static void changeJumpHeight(Player player, float Value)
+        {
+            player.JumpHeight = Value;
+        }
     }
 }

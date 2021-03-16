@@ -11,13 +11,13 @@ namespace CreativeTools
     {
         public override string Name => "CreativeTools";
 
-        public override Version Version => new Version(1, 0, 1);
+        public override Version Version => new Version(1, 0, 4);
 
         public override string Author => "KuebV";
 
         public static Plugin Instance { get; private set; }
 
-        public Dictionary<Player, Player> JailedUsers { get; } = new Dictionary<Player, Player>();
+        public static List<Jailed> JailedPlayers = new List<Jailed>();
         public Dictionary<Player, string> BypassUsers { get; } = new Dictionary<Player, string>();
 
         public override void Disable()
