@@ -98,7 +98,7 @@ Jail is not as reliable as I would hoped it would, for this reason I recommend u
 
 **Example** : ```/speed sprinting all 10```
 
-# Jump Height
+# Jump Height ( Executable in the Text Chat )
 ## Usage & Examples
 **Usage** : ```/jumpheight (value / reset)```
 
