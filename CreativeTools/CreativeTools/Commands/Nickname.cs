@@ -15,7 +15,7 @@ namespace CreativeTools.Commands
     [ChatCommand]
     public class Nickname : TextChat.IChatCommand
     {
-        public List<string> RequiredPermission => new List<string>();
+        public List<string> RequiredPermission => new List<string>() { "ct.nickname" };
         public string Description => "Change a user's Username";
         public string Name => "nickname";
         public bool ShowInHelpCmd => true;

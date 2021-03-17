@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminCommands\Freeze.cs" />
+    <Compile Include="AdminCommands\Give.cs" />
     <Compile Include="AdminCommands\Jail.cs" />
     <Compile Include="Commands\Gravity.cs" />
     <Compile Include="Commands\JumpHeight.cs" />

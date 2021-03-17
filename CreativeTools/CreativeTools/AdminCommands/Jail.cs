@@ -6,6 +6,7 @@ using VirtualBrightPlayz.SCP_ET;
 using VirtualBrightPlayz.SCP_ET.Player;
 using VirtualBrightPlayz.SCP_ET.ServerGroups;
 using UnityEngine;
+using System.Text;
 
 namespace CreativeTools.AdminCommands
 {
@@ -40,6 +41,7 @@ namespace CreativeTools.AdminCommands
                     response = CommandResponse.Create(true, "You must supply a reason!");
                     return;
                 }
+
 
                 if (Plugin.JailedPlayers.Any(j => j.SteamID == currentplayer.steamId.ToString()))
                 {
@@ -86,7 +88,7 @@ namespace CreativeTools.AdminCommands
             Player.Get(target).Health = jail.Health;
             Plugin.JailedPlayers.Remove(jail);
 
-            //This next section is fairly stupid due to how player controller positioning works, the Player falls through the floor
+            // I welcome anyone to make this look better, the only qualification is that is has to work. And well.
             float xPos = jail.Position.x;
             float yPos = (float)(jail.Position.y + 0.05);
             float zPos = jail.Position.z;

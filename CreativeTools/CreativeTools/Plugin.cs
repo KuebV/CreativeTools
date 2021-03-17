@@ -11,7 +11,7 @@ namespace CreativeTools
     {
         public override string Name => "CreativeTools";
 
-        public override Version Version => new Version(1, 0, 4);
+        public override Version Version => new Version(1, 1, 2);
 
         public override string Author => "KuebV";
 
