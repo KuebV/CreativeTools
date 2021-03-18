@@ -38,6 +38,12 @@ namespace CreativeTools.AdminCommands
                         response = CommandResponse.Create(true, "User has been unjailed");
                         return;
                     }
+                    if (!Plugin.Instance.Config.NeedReasonJail)
+                    {
+                        AdminJail(invoker, currentplayer, null);
+                        response = CommandResponse.Create(true, "User has ben jailed");
+                        return;
+                    }
                     response = CommandResponse.Create(true, "You must supply a reason!");
                     return;
                 }
@@ -50,8 +56,11 @@ namespace CreativeTools.AdminCommands
                     return;
                 }
 
-                AdminJail(invoker, currentplayer, args.GetValue(1).ToString());
-                response = CommandResponse.Create(true, "User has ben jailed");
+                string[] v = args.Skip(1).ToArray<string>();
+                string reason = string.Join(" ", v);
+
+                AdminJail(invoker, currentplayer, reason);
+                response = CommandResponse.Create(true, "User has been jailed");
 
             }
             catch (Exception e)
@@ -72,28 +81,51 @@ namespace CreativeTools.AdminCommands
                 Nickname = player.Nickname.ToLower(),
                 SteamID = player.SteamID
             });
+
+            Plugin.JailedPlayers.Add(new Jailed
+            {
+                Health = staff.Health,
+                Position = invoker.transform.position,
+                Nickname = staff.Nickname,
+                SteamID = staff.SteamID
+            });
+
             Vector3 jailPos = new Vector3((float)-98.64979, (float)3019.510, (float)216.9918);
-            target.Broadcast(EventHandlers.MessageFormatter(player, staff, Reason, Plugin.Instance.Config.TargetJailMessage), Plugin.Instance.Config.TargetJailMessageDuration);
-            invoker.Broadcast(EventHandlers.MessageFormatter(player, staff, Reason, Plugin.Instance.Config.StaffJailMessage), Plugin.Instance.Config.StaffJailMessageDuration);
+            if (Plugin.Instance.Config.DisplayJailMessage)
+            {
+                target.Broadcast(EventHandlers.MessageFormatter(player, staff, Reason, Plugin.Instance.Config.TargetJailMessage), Plugin.Instance.Config.TargetJailMessageDuration);
+                invoker.Broadcast(EventHandlers.MessageFormatter(player, staff, Reason, Plugin.Instance.Config.StaffJailMessage), Plugin.Instance.Config.StaffJailMessageDuration);
+            }
 
             target.movementController.ForceSetPos(jailPos);
             invoker.movementController.ForceSetPos(jailPos);
+
         }
 
         private static void AdminUnjail(PlayerController invoker, PlayerController target)
         {
             Jailed jail = Plugin.JailedPlayers.Find(j => j.SteamID == target.steamId.ToString());
-            target.movementController.ForceSetPos(jail.Position);
             target.ClearBroadcasts();
             Player.Get(target).Health = jail.Health;
-            Plugin.JailedPlayers.Remove(jail);
 
-            // I welcome anyone to make this look better, the only qualification is that is has to work. And well.
-            float xPos = jail.Position.x;
-            float yPos = (float)(jail.Position.y + 0.05);
-            float zPos = jail.Position.z;
-            Vector3 fixedPos = new Vector3(xPos, yPos, zPos);
-            target.Position = fixedPos;
+            Jailed staff = Plugin.JailedPlayers.Find(j => j.SteamID == invoker.steamId.ToString());
+            invoker.ClearBroadcasts();
+            Player.Get(invoker).Health = staff.Health;
+
+            // Less terrible
+            Vector3 fixedPos = elevatedVector3(jail.Position.x, jail.Position.y, jail.Position.z);
+            Vector3 fixedStaff = elevatedVector3(staff.Position.x, staff.Position.y, staff.Position.z);
+            target.movementController.ForceSetPos(fixedPos);
+            invoker.movementController.ForceSetPos(fixedStaff);
+
+            Plugin.JailedPlayers.Remove(jail);
+            Plugin.JailedPlayers.Remove(staff);
+        }
+
+        private static Vector3 elevatedVector3(float X, float Y, float Z)
+        {
+            Vector3 pos = new Vector3(X, (float)(Y + 0.5), Z);
+            return pos;
         }
     }
 }

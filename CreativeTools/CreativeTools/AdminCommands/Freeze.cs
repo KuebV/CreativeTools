@@ -37,6 +37,14 @@ namespace CreativeTools.AdminCommands
                         response = CommandResponse.Create(true, "User has been unfrozen");
                         return;
                     }
+
+                    if (!Plugin.Instance.Config.NeedReasonFreeze)
+                    {
+                        FreezePlayer(invoker, currentplayer, null);
+                        response = CommandResponse.Create(true, "User has ben frozen");
+                        return;
+                    }
+
                     response = CommandResponse.Create(true, "You must supply a reason!");
                     return;
                 }
@@ -48,7 +56,10 @@ namespace CreativeTools.AdminCommands
                     return;
                 }
 
-                FreezePlayer(invoker, currentplayer, args.GetValue(1).ToString());
+                string[] v = args.Skip(1).ToArray<string>();
+                string reason = string.Join(" ", v);
+
+                FreezePlayer(invoker, currentplayer, reason);
                 response = CommandResponse.Create(true, "User has ben frozen");
 
             }
@@ -61,17 +72,21 @@ namespace CreativeTools.AdminCommands
 
         private static void FreezePlayer(PlayerController invoker, PlayerController target, string Message)
         {
-
             target.crouchSpeed = 0; target.sprintSpeed = 0; target.walkSpeed = 0; target.noTarget = true; target._godMode = true;
-            target.Broadcast(EventHandlers.MessageFormatter(Player.Get(target), Player.Get(invoker), Message, Plugin.Instance.Config.TargetFreezeMessage), Plugin.Instance.Config.TargetFreezeMessageDuration);
+            if (Plugin.Instance.Config.DisplayFreezeMessage)
+            {
+                target.Broadcast(EventHandlers.MessageFormatter(Player.Get(target), Player.Get(invoker), Message, Plugin.Instance.Config.TargetFreezeMessage), Plugin.Instance.Config.TargetFreezeMessageDuration);
+            }
 
             invoker.movementController.ForceSetPos(target.transform.position);
+
         }
 
         public static void UnfreezePlayer(PlayerController invoker, PlayerController target)
         {
             target.crouchSpeed = 2; target.sprintSpeed = 8; target.walkSpeed = 4; target.noTarget = false; target._godMode = false;
-            target.Broadcast(MessageFormatterWOReason(Player.Get(target), Player.Get(invoker), Plugin.Instance.Config.TargetUnfreezeMessage), Plugin.Instance.Config.TargetUnfreezeMessageDuration);
+            if(Plugin.Instance.Config.DisplayFreezeMessage)
+                target.Broadcast(MessageFormatterWOReason(Player.Get(target), Player.Get(invoker), Plugin.Instance.Config.TargetUnfreezeMessage), Plugin.Instance.Config.TargetUnfreezeMessageDuration);
 
             invoker.movementController.ForceSetPos(new Vector3(0, -5, 0));
             invoker.stats.KillPlayer(PlayerStats.DeathTypes.Admin, invoker.gameObject);

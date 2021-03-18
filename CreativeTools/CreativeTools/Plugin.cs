@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace CreativeTools
 {
@@ -17,8 +18,9 @@ namespace CreativeTools
 
         public static Plugin Instance { get; private set; }
 
+        public static int RequiredConfigVersion => 2;
+
         public static List<Jailed> JailedPlayers = new List<Jailed>();
-        public Dictionary<Player, string> BypassUsers { get; } = new Dictionary<Player, string>();
 
         public override void Disable()
         {
@@ -28,6 +30,9 @@ namespace CreativeTools
         public override void Enable()
         {
             Instance = this;
+            // Check the most recent config is being used
+            if (Config.ConfigVersion != RequiredConfigVersion)
+                Log.Error("Your config file is out of date! Delete the old one and reboot the server");
             CensusCore.CensusCore.InjectEvents();
             Log.Info("CreativeTools has been enabled!");
         }

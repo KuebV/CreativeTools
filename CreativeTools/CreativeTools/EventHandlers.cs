@@ -14,6 +14,7 @@ using VirtualBrightPlayz.SCP_ET.NetworkAuth;
 using UnityEngine;
 using Mirror;
 using CensusAPI.Enums;
+using System.IO;
 
 namespace CreativeTools
 {
@@ -41,6 +42,19 @@ namespace CreativeTools
         public static void SpawnItem(ItemType itemType, Vector3 pos, Quaternion rot)
         {
             Map.SpawnItem(itemType, pos, rot);
+        }
+
+        public static Player getPlayer(string PlayerName)
+        {
+            // We lowercase all their names, because people have weird ass capitals in their name
+            string corrPlayer = PlayerName.ToLower();
+            foreach(Player player in Player.List)
+            {
+                if (player.Nickname.ToLower().Contains(corrPlayer))
+                    return player;
+            }
+            return null;
+
         }
     }
 }
