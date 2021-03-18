@@ -7,6 +7,8 @@ Group of commands for Moderators and Admins alike.
 - Freeze
 - Position
 - Noclip
+- Position Control
+- Give
 
 ## Fun Commands
 - Gravity
@@ -26,6 +28,8 @@ CreativeTools uses its own permissions.
 - ct.jump (allowed to change jump height)
 - ct.nickname (allowed to change nicknames)
 - ct.speed (allowed to use the speed command)
+- ct.give (allowed to give items)
+- ct.pos (allowed to pos)
 (Noclip doesn't have its own permission. It uses the default admin.noclip permission
 
 ## Q/A

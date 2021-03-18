@@ -7,6 +7,7 @@
 - Position
 - Noclip
 - Give
+- POS
 
 ## Fun Commands
 - Gravity
@@ -71,6 +72,16 @@ Jail is not as reliable as I would hoped it would, for this reason I recommend u
 - Scp1499
 - Flashlight
 - Battery
+
+# POS ( Executable in the Admin Panel )
+## Usage & Examples
+POS allows you to adjust your position
+
+**Usage** : ```pos (x) (y) (z)```
+
+**Example** : ```pos 2 5 1``` **or** ```pos -1 5 -10```
+
+*This only works for the command sender*
 
 # Noclip ( Executable in the Text Chat )
 ## Usage & Examples
