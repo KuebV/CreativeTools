@@ -50,6 +50,7 @@ namespace CreativeTools.Commands
                     Player player = Player.Get(invoker);
                     response = CommandResponse.Create(true, $"Current Gravity Value : {player.Gravity}");
                     return;
+
                 }
                 else
                 {
