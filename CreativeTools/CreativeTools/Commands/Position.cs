@@ -18,6 +18,8 @@ namespace CreativeTools.Commands
         public List<string> Aliases => new List<string>();
         public bool Hidden => false;
 
+        private Coroutine coroutine;
+
         public void Invoke(PlayerController invoker, string[] args, out CommandResponse response)
         {
             Player player = Player.Get(invoker);
@@ -30,6 +32,14 @@ namespace CreativeTools.Commands
             NetworkIdentity identity = obj.GetComponent<NetworkIdentity>();
             string pos = $"X:{identity.transform.position.x} Y:{identity.transform.position.y} Z:{identity.transform.position.z}";
             return pos;
+        }
+
+        private void showPosition(string Position)
+        {
+            if (this.coroutine != null)
+            {
+                base.StopCoroutine(this.coroutine)
+            }
         }
     }
 }

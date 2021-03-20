@@ -15,11 +15,14 @@ using UnityEngine;
 using Mirror;
 using CensusAPI.Enums;
 using System.IO;
+using System.Collections;
 
 namespace CreativeTools
 {
-    public class EventHandlers
+    public class EventHandlers : MonoBehaviour
     {
+
+        private Coroutine coroutine;
 
         public static string MessageFormatter(Player target, Player staff, string Reason, string Config) =>
             string.IsNullOrEmpty(Config) ? string.Empty : Config.Replace("%target%", target.Nickname).Replace("%staff%", staff.Nickname).Replace("%reason%", Reason);
@@ -56,5 +59,6 @@ namespace CreativeTools
             return null;
 
         }
+
     }
 }
