@@ -24,7 +24,7 @@ namespace CreativeTools.AdminCommands
         {
             if (args.Length < 1)
             {
-                response = CommandResponse.Create(true, "Usage : give (item)");
+                response = CommandResponse.Create(false, "Usage : give (item)");
                 return;
             }
 
@@ -35,7 +35,7 @@ namespace CreativeTools.AdminCommands
             }
             catch (Exception e)
             {
-                response = CommandResponse.Create(true, "Invalid Item Type");
+                response = CommandResponse.Create(false, "Invalid Item Type");
                 return;
             }
 

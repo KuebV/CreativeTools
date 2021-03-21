@@ -26,7 +26,7 @@ namespace CreativeTools.AdminCommands
             {
                 if (args.Length < 1)
                 {
-                    response = CommandResponse.Create(true, "Usage : freeze {user} {reason}");
+                    response = CommandResponse.Create(false, "Usage : freeze {user} {reason}");
                     return;
                 }
                 if (args.Length < 2)
@@ -45,7 +45,7 @@ namespace CreativeTools.AdminCommands
                         return;
                     }
 
-                    response = CommandResponse.Create(true, "You must supply a reason!");
+                    response = CommandResponse.Create(false, "You must supply a reason!");
                     return;
                 }
 

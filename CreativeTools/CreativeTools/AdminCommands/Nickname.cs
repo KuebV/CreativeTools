@@ -24,7 +24,7 @@ namespace CreativeTools.AdminCommands
         {
             if (args.Length != 2)
             {
-                response = CommandResponse.Create(true, "Usage : nickname (player / all) (name)");
+                response = CommandResponse.Create(false, "Usage : nickname (player / all) (name)");
                 return;
             }
 

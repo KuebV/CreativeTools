@@ -27,7 +27,7 @@ namespace CreativeTools.AdminCommands
             {
                 if (args.Length < 1)
                 {
-                    response = CommandResponse.Create(true, "Usage : jail {user} {reason}");
+                    response = CommandResponse.Create(false, "Usage : jail {user} {reason}");
                     return;
                 }
                 if (args.Length < 2)
@@ -44,7 +44,7 @@ namespace CreativeTools.AdminCommands
                         response = CommandResponse.Create(true, "User has ben jailed");
                         return;
                     }
-                    response = CommandResponse.Create(true, "You must supply a reason!");
+                    response = CommandResponse.Create(false, "You must supply a reason!");
                     return;
                 }
 

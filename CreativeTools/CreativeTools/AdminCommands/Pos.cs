@@ -24,7 +24,7 @@ namespace CreativeTools.AdminCommands
         {
             if (args.Length != 3)
             {
-                response = CommandResponse.Create(true, "Usage : pos (x) (y) (z)");
+                response = CommandResponse.Create(false, "Usage : pos (x) (y) (z)");
                 return;
             }
             float xPos, yPos, zPos;
@@ -45,7 +45,7 @@ namespace CreativeTools.AdminCommands
                     }
                 }
             }
-            response = CommandResponse.Create(true, "Invalid Usage. Check the Github");
+            response = CommandResponse.Create(false, "Invalid Usage. Check the Github");
             return;
         }
     }
