@@ -60,5 +60,15 @@ namespace CreativeTools
 
         }
 
+        public static void SetPlayerHeight (PlayerController player, float Size)
+        {
+            player.heightMod = Size;
+        }
+
+        public static float GetPlayerHeight (PlayerController player)
+        {
+            return player.heightMod;
+        }
+
     }
 }

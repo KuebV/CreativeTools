@@ -23,6 +23,8 @@ namespace CreativeTools.Events
         public static void RoundStart()
         {
             Plugin.JailedPlayers.Clear();
+
+            
         }
 
     }

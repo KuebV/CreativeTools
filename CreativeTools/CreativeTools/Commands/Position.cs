@@ -34,12 +34,5 @@ namespace CreativeTools.Commands
             return pos;
         }
 
-        private void showPosition(string Position)
-        {
-            if (this.coroutine != null)
-            {
-                base.StopCoroutine(this.coroutine)
-            }
-        }
     }
 }

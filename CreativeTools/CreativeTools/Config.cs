@@ -10,7 +10,7 @@ namespace CreativeTools
     public class Config : IConfig
     {
         public bool IsEnabled { get; set; } = true;
-        public int ConfigVersion { get; set; } = 1;
+        public int ConfigVersion { get; set; } = 2;
         public bool NeedReasonJail { get; set; } = true;
         public bool DisplayJailMessage { get; set; } = false;
         public string TargetJailMessage { get; set; } = "<color=red>%target%, You have been jailed! %staff% will be with you soon</color>\n<color=green>Reason : %reason%</color>";
@@ -23,5 +23,6 @@ namespace CreativeTools
         public int TargetFreezeMessageDuration { get; set; } = 10;
         public string TargetUnfreezeMessage { get; set; } = "You have been unfrozen!";
         public int TargetUnfreezeMessageDuration { get; set; } = 5;
+
     }
 }
