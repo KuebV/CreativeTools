@@ -68,10 +68,10 @@
     <Compile Include="AdminCommands\Jail.cs" />
     <Compile Include="AdminCommands\Nickname.cs" />
     <Compile Include="AdminCommands\Pos.cs" />
+    <Compile Include="AdminCommands\Speed.cs" />
     <Compile Include="Commands\JumpHeight.cs" />
     <Compile Include="Commands\Noclip.cs" />
     <Compile Include="Commands\Position.cs" />
-    <Compile Include="Commands\Speed.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="EventHandlers.cs" />
     <Compile Include="Events\CTEvents.cs" />
