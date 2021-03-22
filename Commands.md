@@ -15,7 +15,8 @@
 - Jump Height
 - Nicknames
 
-# Jail Command ( Executable in the Admin Panel )
+# Jail Command ( Executable in the Admin Panel ) 
+# (Jail has been disabled for versions 1.3+)
 ## Usage & Examples
 ### Jailing
 **Usage** : ```jail (user) (reason[optional])``` 
@@ -83,6 +84,24 @@ POS allows you to adjust your position
 
 *This only works for the command sender*
 
+# Gravity ( Executable in the Admin Panel )
+## Usage & Examples
+Adjust the servers gravity
+
+**Usage** : ```gravity (value / reset)```
+
+**Example** : ```gravity -5``` **or** ```gravity reset```
+
+# Speed ( Executable in the Admin Panel )
+## Usage & Examples
+Adjust your speed, a players speed, or everyones speed
+
+**Usage** : ```speed (crouching / walking / sprinting) (value / reset) [all / me]```
+
+**Example** : ```speed crouching 20 all``` **or** ```speed crouching 20```
+
+*Anything in the [] is optional*
+
 # Noclip ( Executable in the Text Chat )
 ## Usage & Examples
 **Usage** : ```/noclip (user)``` **or** ```/noclip```
@@ -96,18 +115,6 @@ POS allows you to adjust your position
 **Usage** : ```/nickname (user/all) (name)```
 
 **Example** : ```/nickname all Dr.Bright```
-
-# Gravity ( Executable in the Text Chat )
-## Usage & Examples
-**Usage** : ```/gravity (value / reset)```
-
-**Example** : ```/gravity -15```
-
-# Speed ( Executable in the Text Chat )
-## Usage & Examples
-**Usage** : ```/speed (sprinting/walking/crouching) (user / all) (value)```
-
-**Example** : ```/speed sprinting all 10```
 
 # Jump Height ( Executable in the Text Chat )
 ## Usage & Examples
