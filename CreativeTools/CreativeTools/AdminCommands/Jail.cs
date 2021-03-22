@@ -27,7 +27,7 @@ namespace CreativeTools.AdminCommands
             {
                 if (args.Length < 1)
                 {
-                    response = CommandResponse.Create(false, "Usage : jail {user} {reason}");
+                    response = CommandResponse.Create(false, "Usage : jail {reason}");
                     return;
                 }
                 if (args.Length < 2)
@@ -56,7 +56,7 @@ namespace CreativeTools.AdminCommands
                     return;
                 }
 
-                string[] v = args.Skip(1).ToArray<string>();
+                string[] v = args.Skip(0).ToArray<string>();
                 string reason = string.Join(" ", v);
 
                 AdminJail(invoker, currentplayer, reason);

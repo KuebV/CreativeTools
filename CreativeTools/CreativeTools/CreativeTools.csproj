@@ -64,10 +64,10 @@
   <ItemGroup>
     <Compile Include="AdminCommands\Freeze.cs" />
     <Compile Include="AdminCommands\Give.cs" />
+    <Compile Include="AdminCommands\Gravity.cs" />
     <Compile Include="AdminCommands\Jail.cs" />
     <Compile Include="AdminCommands\Nickname.cs" />
     <Compile Include="AdminCommands\Pos.cs" />
-    <Compile Include="Commands\Gravity.cs" />
     <Compile Include="Commands\JumpHeight.cs" />
     <Compile Include="Commands\Noclip.cs" />
     <Compile Include="Commands\Position.cs" />
