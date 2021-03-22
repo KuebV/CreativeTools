@@ -22,52 +22,48 @@ namespace CreativeTools.AdminCommands
 
         public void Invoke(PlayerController invoker, PlayerController currentplayer, string[] args, out CommandResponse response)
         {
-            string resp = "";
             try
             {
                 if (args.Length < 1)
                 {
-                    response = CommandResponse.Create(false, "Usage : jail {reason}");
-                    return;
-                }
-                if (args.Length < 2)
-                {
                     if (Plugin.JailedPlayers.Any(j => j.SteamID == currentplayer.steamId.ToString()))
                     {
                         AdminUnjail(invoker, currentplayer);
-                        response = CommandResponse.Create(true, "User has been unjailed");
-                        return;
+                        response = CommandResponse.Create(true, $"{currentplayer.playerName} has been unjailed");
+                        Log.Info($"{currentplayer.playerName}({currentplayer.steamId}) has been unjailed by {invoker.playerName}({invoker.steamId}) [{invoker.playerGroup}]");
                     }
                     if (!Plugin.Instance.Config.NeedReasonJail)
                     {
                         AdminJail(invoker, currentplayer, null);
-                        response = CommandResponse.Create(true, "User has ben jailed");
+                        response = CommandResponse.Create(true, $"{currentplayer.playerName} has been jailed");
+                        Log.Info($"{currentplayer.playerName}({currentplayer.steamId}) has been jailed by {invoker.playerName}({invoker.steamId}) [{invoker.playerGroup}]");
                         return;
                     }
-                    response = CommandResponse.Create(false, "You must supply a reason!");
+                    response = CommandResponse.Create(false, "Usage : jail (reason)");
                     return;
                 }
-
 
                 if (Plugin.JailedPlayers.Any(j => j.SteamID == currentplayer.steamId.ToString()))
                 {
                     AdminUnjail(invoker, currentplayer);
-                    response = CommandResponse.Create(true, "User has been unjailed");
-                    return;
+                    response = CommandResponse.Create(true, $"{currentplayer.playerName} has been unjailed");
+                    Log.Info($"{currentplayer.playerName}({currentplayer.steamId}) has been unjailed by {invoker.playerName}({invoker.steamId}) [{invoker.playerGroup}]");
                 }
 
                 string[] v = args.Skip(0).ToArray<string>();
                 string reason = string.Join(" ", v);
 
                 AdminJail(invoker, currentplayer, reason);
-                response = CommandResponse.Create(true, "User has been jailed");
-
+                response = CommandResponse.Create(true, $"{currentplayer.playerName} has been jailed");
+                Log.Info($"{currentplayer.playerName}({currentplayer.steamId}) has been jailed by {invoker.playerName}({invoker.steamId}) [{invoker.playerGroup}]");
+                return;
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 Log.Error(e);
+                response = CommandResponse.Create(false, "An error has occured, use Freeze");
+                return;
             }
-            response = CommandResponse.Create(true, resp);
         }
 
         private static void AdminJail(PlayerController invoker, PlayerController target, string Reason)
