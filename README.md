@@ -41,3 +41,7 @@ CreativeTools uses its own permissions.
 
 **UnityObjects getting destroyed, this will be fixed in the near future**
 
+- Why did Jail get disabled?
+
+**Unreliablity with Map Generation, the command at its current stage is clunky and unreliable. I will push a release if the surface generation is fixed or we find a fix for it** 
+
