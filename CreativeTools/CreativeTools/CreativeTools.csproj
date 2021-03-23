@@ -62,14 +62,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminCommands\BringAll.cs" />
     <Compile Include="AdminCommands\Freeze.cs" />
     <Compile Include="AdminCommands\Give.cs" />
     <Compile Include="AdminCommands\Gravity.cs" />
     <Compile Include="AdminCommands\Jail.cs" />
+    <Compile Include="AdminCommands\JumpHeight.cs" />
     <Compile Include="AdminCommands\Nickname.cs" />
+    <Compile Include="AdminCommands\PBC.cs" />
     <Compile Include="AdminCommands\Pos.cs" />
     <Compile Include="AdminCommands\Speed.cs" />
-    <Compile Include="Commands\JumpHeight.cs" />
     <Compile Include="Commands\Noclip.cs" />
     <Compile Include="Commands\Position.cs" />
     <Compile Include="Config.cs" />
