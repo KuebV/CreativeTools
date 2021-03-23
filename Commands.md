@@ -102,6 +102,22 @@ Adjust your speed, a players speed, or everyones speed
 
 *Anything in the [] is optional*
 
+# Nickname ( Executable in the Admin Panel )
+## Usage & Examples
+**Usage** : ```nickname (name)```
+
+**Example** : ```nickname Dr.Bright```
+
+# Jump Height ( Executable in the Admin Panel )
+## Usage & Examples
+**Usage** : ```jumpheight (value / reset)```
+
+**Example** : ```jumpheight 5```
+
+# Bring All ( Executable in the Admin Panel )
+## Usage & Examples
+**Usage** : ```bringall```
+
 # Noclip ( Executable in the Text Chat )
 ## Usage & Examples
 **Usage** : ```/noclip (user)``` **or** ```/noclip```
@@ -109,15 +125,3 @@ Adjust your speed, a players speed, or everyones speed
 **Example** : ```/noclip Bright``` **or** ```/noclip```
 
 *By including a name, you are specifying a player, if no name is specified at the end, it will target you*
-
-# Nickname ( Executable in the Text Chat )
-## Usage & Examples
-**Usage** : ```/nickname (user/all) (name)```
-
-**Example** : ```/nickname all Dr.Bright```
-
-# Jump Height ( Executable in the Text Chat )
-## Usage & Examples
-**Usage** : ```/jumpheight (value / reset)```
-
-**Example** : ```/jumpheight 5```
