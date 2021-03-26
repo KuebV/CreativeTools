@@ -12,13 +12,13 @@ namespace CreativeTools
     {
         public override string Name => "CreativeTools";
 
-        public override Version Version => new Version(1, 3, 2);
+        public override Version Version => new Version(1, 3, 3);
 
         public override string Author => "KuebV";
 
         public static Plugin Instance { get; private set; }
 
-        public static int RequiredConfigVersion => 2;
+        public static int RequiredConfigVersion => 3;
 
         public static List<Jailed> JailedPlayers = new List<Jailed>();
 

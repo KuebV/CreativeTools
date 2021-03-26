@@ -27,19 +27,9 @@ namespace CreativeTools
         public static string MessageFormatter(Player target, Player staff, string Reason, string Config) =>
             string.IsNullOrEmpty(Config) ? string.Empty : Config.Replace("%target%", target.Nickname).Replace("%staff%", staff.Nickname).Replace("%reason%", Reason);
 
-        public static Vector3 getPosition(PlayerController controller)
-        {
-            return controller.transform.position;
-        }
-
         public static void changeNickname(Player player, string Value)
         {
             player.Nickname = Value;
-        }
-
-        public static void changeJumpHeight(Player player, float Value)
-        {
-            player.JumpHeight = Value;
         }
 
         public static void SpawnItem(ItemType itemType, Vector3 pos, Quaternion rot)
@@ -60,15 +50,30 @@ namespace CreativeTools
 
         }
 
-        public static void SetPlayerHeight (PlayerController player, float Size)
-        {
-            player.heightMod = Size;
-        }
-
-        public static float GetPlayerHeight (PlayerController player)
-        {
-            return player.heightMod;
-        }
-
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
