@@ -21,6 +21,7 @@ namespace CreativeTools
         public static int RequiredConfigVersion => 3;
 
         public static List<Jailed> JailedPlayers = new List<Jailed>();
+        public static List<Frozen> FrozenPlayers = new List<Frozen>();
 
         public override void Disable()
         {

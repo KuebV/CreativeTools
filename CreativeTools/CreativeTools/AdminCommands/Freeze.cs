@@ -26,12 +26,8 @@ namespace CreativeTools.AdminCommands
             {
                 if (args.Length < 1)
                 {
-                    response = CommandResponse.Create(false, "Usage : freeze {reason}");
-                    return;
-                }
-                if (args.Length < 2)
-                {
-                    if (currentplayer.sprintSpeed == 0)
+
+                    if (Plugin.FrozenPlayers.Any(j => j.Name == currentplayer.playerName))
                     {
                         UnfreezePlayer(invoker, currentplayer);
                         response = CommandResponse.Create(true, "User has been unfrozen");
@@ -41,15 +37,20 @@ namespace CreativeTools.AdminCommands
                     if (!Plugin.Instance.Config.NeedReasonFreeze)
                     {
                         FreezePlayer(invoker, currentplayer, null);
-                        response = CommandResponse.Create(true, "User has ben frozen");
+                        Plugin.FrozenPlayers.Add(new Frozen
+                        {
+                            Name = currentplayer.playerName
+                        });
+                        response = CommandResponse.Create(true, "User has been frozen");
                         return;
                     }
 
-                    response = CommandResponse.Create(false, "You must supply a reason!");
+                    response = CommandResponse.Create(false, "Usage : freeze {reason}");
                     return;
+
                 }
 
-                if (currentplayer.sprintSpeed == 0)
+                if (Plugin.FrozenPlayers.Any(j => j.Name == currentplayer.playerName))
                 {
                     UnfreezePlayer(invoker, currentplayer);
                     response = CommandResponse.Create(true, "User has been unfrozen");
@@ -59,8 +60,13 @@ namespace CreativeTools.AdminCommands
                 string[] v = args.Skip(0).ToArray<string>();
                 string reason = string.Join(" ", v);
 
+                Plugin.FrozenPlayers.Add(new Frozen
+                {
+                    Name = currentplayer.playerName
+                });
+
                 FreezePlayer(invoker, currentplayer, reason);
-                response = CommandResponse.Create(true, "User has ben frozen");
+                response = CommandResponse.Create(true, "User has been frozen");
 
             }
             catch (Exception e)
@@ -90,6 +96,9 @@ namespace CreativeTools.AdminCommands
 
             invoker.movementController.ForceSetPos(new Vector3(0, -5, 0));
             invoker.stats.KillPlayer(PlayerStats.DeathTypes.Admin, invoker.gameObject);
+
+            Frozen players = Plugin.FrozenPlayers.Find(f => f.Name == target.playerName);
+            Plugin.FrozenPlayers.Remove(players);
 
         }
 
