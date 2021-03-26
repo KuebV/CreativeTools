@@ -23,7 +23,7 @@ namespace CreativeTools.AdminCommands
         public void Invoke(PlayerController invoker, PlayerController currentplayer, string[] args, out CommandResponse response)
         {
             currentplayer.ClearInv();
-            response = CommandResponse.Create(true, $"Done, Cleared {currentplayer.name}'s Inventory");
+            response = CommandResponse.Create(true, $"Done, Cleared {currentplayer.playerName}'s Inventory");
         }
     }
 }

@@ -67,7 +67,6 @@
     <Compile Include="AdminCommands\Freeze.cs" />
     <Compile Include="AdminCommands\Give.cs" />
     <Compile Include="AdminCommands\Gravity.cs" />
-    <Compile Include="AdminCommands\HP.cs" />
     <Compile Include="AdminCommands\Jail.cs" />
     <Compile Include="AdminCommands\JumpHeight.cs" />
     <Compile Include="AdminCommands\Nickname.cs" />
